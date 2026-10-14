@@ -1,19 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path'); // Tambahan modul untuk mengelola alamat folder
 
 const app = express();
 const port = 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Endpoint untuk ngetes server
-app.get('/', (req, res) => {
-  res.send('Server Pangkas Rambut GIS Berjalan Mantap!');
-});
+// Memberitahu Express untuk menyajikan file statis dari folder 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Menjalankan server
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
 });
