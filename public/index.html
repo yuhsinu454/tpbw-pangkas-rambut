@@ -97,7 +97,7 @@
     <!-- Memanggil JavaScript Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
-    <script>
+<script>
         // 1. Inisialisasi Peta (Koordinat digeser ke pusat Kota Bandung, Zoom diperkecil jadi 13)
         const map = L.map('map').setView([-6.914744, 107.609810], 13);
 
@@ -108,8 +108,24 @@
         }).addTo(map);
 
         // ==========================================
-        // Area ini siap menerima data dari Database
+        // 3. Mengambil data dari Database via API
         // ==========================================
+        fetch('/api/lokasi')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(tempat => {
+                    // Memasang marker berdasarkan latitude dan longitude dari database
+                    const marker = L.marker([tempat.latitude, tempat.longitude]).addTo(map);
+                    
+                    // Menambahkan popup informasi saat marker diklik
+                    marker.bindPopup(`
+                        <b>${tempat.nama}</b><br>
+                        Kategori: ${tempat.kategori}<br>
+                        Harga: Rp ${tempat.harga.toLocaleString('id-ID')}
+                    `);
+                });
+            })
+            .catch(error => console.error('Gagal memuat titik lokasi:', error));
     </script>
 </body>
 </html>
