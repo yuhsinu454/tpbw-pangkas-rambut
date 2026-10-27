@@ -202,8 +202,91 @@ VALUES
 ('Barber Shop Abadi', 'Barbershop', 0, -6.892423259608149, 107.62764146700502),
 ('Barbershop Azam Kuch Kuch Hota Hai', 'Barbershop', 0, -6.894261125626498, 107.62805120629052),
 ('DR.Barber', 'Barbershop', 0, -6.895826858186475, 107.63111428848129),
-('Listen Barbershop', 'Barbershop', 0, -6.898255331127572, 107.63437585446871);
+('Listen Barbershop', 'Barbershop', 0, -6.898255331127572, 107.63437585446871),
+('d leci salon', 'Salon', 0, -6.898744402099946, 107.6193232884282),
+('Humaira salon muslimah', 'Salon', 0, -6.89729584228713, 107.62092188491546),
+('Beyelashbdg', 'Salon', 50000, -6.895906923166338, 107.6204403457707),
+('Terry Salon', 'Salon', 0, -6.897153114572834, 107.62219987479024),
+('Ghesty Salon', 'Salon', 0, -6.897565175592654, 107.622867529874),
+('RK Salon', 'Salon', 0, -6.897139127991692, 107.62361854835218),
+('RAYA BEAUTY SALON & SPA', 'Salon', 0, -6.896175193864075, 107.62506694116621),
+('NG SALON', 'Salon', 0, -6.89806578103011, 107.6313701320791),
+('Massage+salon mba ayu Nova ,terima panggilan', 'Salon', 0, -6.895614844451392, 107.62427169723028),
+('NY SALON', 'Salon', 0, -6.892596212426336, 107.62612981139004),
+('Yati Salon', 'Salon', 0, -6.892447094244489, 107.62504619900606),
+('Salon El Natan', 'Salon', 0, -6.891989088093381, 107.62742800060558),
+('Sherlly salon', 'Salon', 0, -6.892045253929289, 107.62913095575153),
+('Marsha Salon', 'Salon', 0, -6.892055905238583, 107.6294581852338),
+('Dicky salon & beauty', 'Salon', 0, -6.8889027999999835, 107.62514106416263),
+('Salon Pamode', 'Salon', 15000, -6.88832187430351, 107.6259390420739),
+('Salon Yung', 'Salon', 0, -6.891661399999986, 107.63333094130854),
+('Alansalon129', 'Salon', 0, -6.891258615651081, 107.64535465112833),
+('Salon DZevas Beauty', 'Salon', 0, -6.884912863884197, 107.61816426976712),
+('Salon Putri', 'Salon', 0, -6.885334077929265, 107.61432503887863),
+('Salon Memori', 'Salon', 0, -6.884508589031036, 107.6136008424656),
+('Sunan Salon', 'Salon', 0, -6.882424678568514, 107.6119201357188),
+('Hamima Salon Muslimah Dago', 'Salon', 195000, -6.88396914724388, 107.61503149800944),
+('Salon Seruni', 'Salon', 0, -6.880616220052182, 107.61595958805388),
+('Salon Lohita', 'Salon', 0, -6.880030383560222, 107.61648530099265),
+('Strawberry Salon Dago', 'Salon', 0, -6.878336779455141, 107.61692518325214),
+('Nda Salon', 'Salon', 0, -6.876185147909325, 107.6176762018763),
+('Salon Putri Hair and make up', 'Salon', 0, -6.875139952091545, 107.61896097985203),
+('D"ffond Salon', 'Salon', 0, -6.8738505478408864, 107.61841201821802),
+('Hana Hair & Beauty Bar', 'Salon', 0, -6.86754468911034, 107.62086892117401),
+('Natalia Salon', 'Salon', 0, -6.86678229147284, 107.62140894151915),
+('Rogers Salon Dago', 'Salon', 0, -6.894754548751592, 107.61269475716072),
+('Rei Salon', 'Salon', 0, -6.912154841576012, 107.59615085679866),
+('Varsha Salon', 'Salon', 0, -6.910514625101, 107.59803914029132),
+('Miming Hair Salon', 'Salon', 0, -6.90385776956481, 107.59798549574727),
+('Hettie Salon (hair and beauty salon)', 'Salon', 0, -6.905018731909623, 107.5966765778181),
+('StyleUp Salon - Style Up hair design n esthetic', 'Salon', 0, -6.905423470406019, 107.59620987347449),
+('Friendly Home Care Salon', 'Salon', 0, -6.906755856849163, 107.59096900235897),
+('Cie Salon', 'Salon', 0, -6.904295474415711, 107.5896064402524),
+('Yoyong Redhy Salon', 'Salon', 0, -6.907133966421059, 107.58888224371546),
+('Hedy s', 'Salon', 0, -6.906622719585094, 107.58797565711698),
+('Strawbery Salon', 'Salon', 0, -6.90725112703578, 107.58488843451885),
+('Venus Kids Salon', 'Salon', 0, -6.90749876195777, 107.58198360220784),
+('Novelly Hair Studio Sudirman Pusat', 'Salon', 0, -6.9179110952426255, 107.5787264958869),
+('Memey Salon', 'Salon', 0, -6.90289102552975, 107.5903408485572),
+('Arbetty Salon', 'Salon', 0, -6.901479757226586, 107.59012627183775),
+('Salon Merry', 'Salon', 0, -6.900249553888326, 107.58905875270032),
+('Kings by Royals Barbershop', 'Barbershop', 0, -6.8808697710999045, 107.59853733354132),
+('EMENNS HAIRCUT', 'Barbershop', 0, -6.892903762822499, 107.59524719795908),
+('Dr.cuts barbershop', 'Barbershop', 0, -6.892809232613293, 107.59045811401947),
+('Sober Cut Barbershop', 'Barbershop', 0, -6.893682637846892, 107.57430048804343),
+('Captain Barbershop Sumantri', 'Barbershop', 70000, -6.883762110318729, 107.58163289616469),
+('RINYU HAIRCUTS', 'Barbershop', 0, -6.897882579116923, 107.59041068118124),
+('kabin Barbershop', 'Barbershop', 0, -6.901552327962535, 107.58828223509038),
+('Charlind HairCut', 'Barbershop', 0, -6.901618907934424, 107.59057416432042),
+('Barberkiehl Boutique Barbershop Pajajaran', 'Barbershop', 0, -6.904308301566902, 107.59051783795124),
+('HolyBarber', 'Barbershop', 20000, -6.908455859452363, 107.59136737764996),
+('YADI BARBERSHOP BIMA', 'Barbershop', 0, -6.9116799357387935, 107.59534055648534),
+('Travourse | Paskal 23', 'Barbershop', 110000, -6.9145830999976905, 107.59325529954523),
+('The Cut Rumah Barber - Ruko Paskal Hyper Square, Bandung', 'Barberhop', 100000, -6.914891973159193, 107.59578730471972),
+('Westminster Barber & Coffee', 'Barbershop', 70000, -6.914864435710024, 107.59662584904028),
+('Hairsdoel Studio voll l', 'Barbershop', 0, -6.90779141369417, 107.6073470345618),
+('Pangkas Rambut Yadi Asgar', 'Asgar', 10000, -6.899764576632909, 107.59040398258941),
+('Pangkas Rambut Asgar', 'Asgar', 0, -6.88523287426879, 107.60078161677066),
+('Pangkas Rambut Asgar', 'Asgar', 0, -6.876562504582747, 107.57929175871045),
+('Pangkas Rambut Asgar Abah Agus', 'Asgar', 0, -6.892446522229834, 107.59450256521926),
+('Kang yog cukur asgar', 'Asgar', 20000, -6.901369565163725, 107.59560495325206),
+('Pangkas rambut PUTRA ASGAR', 'Asgar', 0, -6.910584008137356, 107.58283629762853);
 
 
 -- 4. Tampilkan hasilnya
+SELECT * FROM lokasi_cukur;
+
+-- 5. Tambahkan kolom jam_operasional tanpa menghapus data
+ALTER TABLE lokasi_cukur 
+ADD COLUMN IF NOT EXISTS jam_operasional VARCHAR(50);
+
+-- 6. Isi jam buka-tutup otomatis berdasarkan kategori (Bisa diubah sesuai keinginan)
+UPDATE lokasi_cukur SET jam_operasional = '10.00 - 22.00 WIB' WHERE kategori = 'Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '08.00 - 21.00 WIB' WHERE kategori = 'Asgar';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 20.00 WIB' WHERE kategori = 'Salon';
+
+-- (Opsional) Kalau mau mengubah jam buka tempat tertentu saja secara spesifik:
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 23.00 WIB' WHERE nama = 'GoodFellas Barbershop';
+
+-- 7. Cek hasil tabel yang sudah ada jam operasionalnya
 SELECT * FROM lokasi_cukur;
