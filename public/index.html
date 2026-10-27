@@ -3,73 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peta Pangkas Rambut Bandung</title>
+    <title>Barbershop & Asgar Finder - Kota Bandung</title>
     
     <!-- Memanggil CSS Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
     <style>
-        body { 
-            margin: 0; 
-            padding: 0; 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            height: 100vh;
         }
-
         header {
-            background-color: #1c1c1e;
-            color: #f1c40f;
+            background-color: #1a1a1a;
+            color: #ffffff;
             padding: 15px 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            z-index: 1000; 
+            border-bottom: 3px solid #f39c12;
         }
-        header h1 { margin: 0; font-size: 24px; }
-        header p { margin: 5px 0 0 0; font-size: 14px; color: #ecf0f1; }
-
+        header h1 {
+            font-size: 22px;
+            color: #f39c12;
+            margin-bottom: 4px;
+        }
+        header p {
+            font-size: 13px;
+            color: #cccccc;
+        }
         .main-container {
             display: flex;
             flex: 1;
-            height: 100%;
+            height: calc(100vh - 68px);
             overflow: hidden;
         }
-
         .sidebar {
-            width: 300px;
+            width: 330px;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 18px;
             box-shadow: 2px 0 8px rgba(0,0,0,0.1);
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 14px;
+            height: 100%;
         }
-
         .sidebar h2 {
             margin: 0;
-            font-size: 18px;
+            font-size: 17px;
             color: #2c3e50;
-            border-bottom: 2px solid #f1c40f;
-            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 6px;
         }
-
-        .info-box {
+        .info-card {
             background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            color: #7f8c8d;
             border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px;
             text-align: center;
-            line-height: 1.5;
+        }
+        .info-card h3 {
+            font-size: 13px;
+            color: #495057;
+            margin-bottom: 4px;
+        }
+        .counter-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+        /* Styling Kolom Pencarian (Search Bar) */
+        .search-box input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus {
+            border-color: #f39c12;
+            box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
+        }
+        .filter-section h3, .list-section h3 {
+            font-size: 13px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .filter-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .btn-filter {
+            padding: 8px 10px;
+            border: 1px solid #dcdde1;
+            background-color: #ffffff;
+            color: #2f3640;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: left;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-filter:hover {
+            background-color: #f1f2f6;
+            border-color: #f39c12;
+        }
+        .btn-filter.active {
+            background-color: #f39c12;
+            color: #ffffff;
+            border-color: #e67e22;
+        }
+        .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1.5px solid #ffffff;
+            box-shadow: 0 0 2px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+        .dot-blue { background-color: #2A81CB; }
+        .dot-green { background-color: #2AAD27; }
+        .dot-red { background-color: #CB2B3E; }
+
+        /* Styling Daftar Lokasi yang Bisa Di-scroll */
+        .list-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .location-list {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 6px;
+            background-color: #fcfcfc;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .location-item {
+            padding: 10px;
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-left: 4px solid #f39c12;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .location-item:hover {
+            background-color: #fff8eb;
+            transform: translateX(3px);
+            border-color: #f39c12;
+        }
+        .location-item .item-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        .location-item .item-meta {
+            font-size: 11px;
+            color: #6c757d;
+            display: flex;
+            justify-content: space-between;
         }
 
-        #map { 
+        #map {
             flex: 1;
-            width: 100%;
             height: 100%;
-        } 
+        }
+
+        /* Styling Kotak Legenda */
+        .legend {
+            background: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-size: 13px;
+            line-height: 22px;
+            color: #333;
+        }
+        .legend h4 {
+            margin: 0 0 6px;
+            font-size: 13px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 4px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
     </style>
 </head>
 <body>
@@ -83,11 +226,46 @@
         <div class="sidebar">
             <h2>Navigasi & Filter</h2>
             
-            <div class="info-box">
-                <b>Area: Kota Bandung</b><br><br>
-                Data pemetaan lokasi pangkas rambut, barbershop, dan salon.
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;">
-                <i>(Fitur Filter Kategori akan ditambahkan di sini nantinya)</i>
+            <div class="info-card">
+                <h3>Area: Kota Bandung</h3>
+                <div class="counter-box" id="jumlah-titik">
+                    Memuat data...
+                </div>
+            </div>
+
+            <!-- Kolom Pencarian Nama -->
+            <div class="search-box">
+                <input type="text" id="input-cari" placeholder="🔍 Cari nama barbershop / jalan..." oninput="perbaruiTampilan()">
+            </div>
+
+            <!-- Tombol Filter Kategori (Dibuat 2 Kolom agar hemat tempat) -->
+            <div class="filter-section">
+                <h3>Pilih Kategori:</h3>
+                <div class="filter-buttons">
+                    <button class="btn-filter active" onclick="filterKategori('Semua', this)">
+                        <span>📍 Semua</span>
+                    </button>
+                    <button class="btn-filter" onclick="filterKategori('Barbershop', this)">
+                        <span>💈 Barber</span>
+                        <span class="dot dot-blue"></span>
+                    </button>
+                    <button class="btn-filter" onclick="filterKategori('Asgar', this)">
+                        <span>✂️ Asgar</span>
+                        <span class="dot dot-green"></span>
+                    </button>
+                    <button class="btn-filter" onclick="filterKategori('Salon', this)">
+                        <span>💇‍♀️ Salon</span>
+                        <span class="dot dot-red"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Daftar Lokasi yang Bisa Diklik -->
+            <div class="list-section">
+                <h3>Daftar Lokasi (Klik untuk Zoom):</h3>
+                <div class="location-list" id="daftar-lokasi">
+                    <!-- Item lokasi akan dimunculkan otomatis oleh JavaScript di sini -->
+                </div>
             </div>
         </div>
 
@@ -96,36 +274,144 @@
 
     <!-- Memanggil JavaScript Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-<script>
-        // 1. Inisialisasi Peta (Koordinat digeser ke pusat Kota Bandung, Zoom diperkecil jadi 13)
+
+    <script>
+        // 1. Inisialisasi Peta Kota Bandung
         const map = L.map('map').setView([-6.914744, 107.609810], 13);
 
-        // 2. Memuat Peta Dasar
+        // 2. Memuat Peta Dasar OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        // ==========================================
-        // 3. Mengambil data dari Database via API
-        // ==========================================
+        // 3. Membuat fungsi pembuat Custom Color Icon
+        function buatIconWarna(warna) {
+            return new L.Icon({
+                iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${warna}.png`,
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+        }
+
+        const iconBarbershop = buatIconWarna('blue');
+        const iconAsgar = buatIconWarna('green');
+        const iconSalon = buatIconWarna('red');
+
+        function pilihIconKategori(kategori) {
+            const kat = kategori.trim().toLowerCase();
+            if (kat === 'asgar') return iconAsgar;
+            if (kat === 'salon') return iconSalon;
+            return iconBarbershop;
+        }
+
+        const markerLayer = L.layerGroup().addTo(map);
+        let semuaDataLokasi = [];
+        let kategoriAktif = 'Semua';
+
+        // 4. Fungsi utama untuk menyaring & menampilkan Marker + Daftar Sidebar
+        function perbaruiTampilan() {
+            markerLayer.clearLayers();
+            const wadahDaftar = document.getElementById('daftar-lokasi');
+            wadahDaftar.innerHTML = '';
+
+            const kataKunci = document.getElementById('input-cari').value.toLowerCase();
+
+            // Saring berdasarkan Kategori DAN Kata Kunci Pencarian
+            const dataTersaring = semuaDataLokasi.filter(item => {
+                const cocokKategori = kategoriAktif === 'Semua' || item.kategori.trim().toLowerCase() === kategoriAktif.toLowerCase();
+                const cocokNama = item.nama.toLowerCase().includes(kataKunci);
+                return cocokKategori && cocokNama;
+            });
+
+            // Jika tidak ada hasil yang cocok
+            if (dataTersaring.length === 0) {
+                wadahDaftar.innerHTML = '<p style="font-size:12px; color:#888; text-align:center; padding:15px;">Lokasi tidak ditemukan.</p>';
+            }
+
+            // Pasang marker di peta dan buat kartu di daftar sidebar
+            dataTersaring.forEach(tempat => {
+                const infoHarga = tempat.harga > 0 
+                    ? `Rp ${tempat.harga.toLocaleString('id-ID')}` 
+                    : 'Belum ada info harga';
+
+                const marker = L.marker([tempat.latitude, tempat.longitude], {
+                    icon: pilihIconKategori(tempat.kategori)
+                });
+
+                marker.bindPopup(`
+                    <b>${tempat.nama}</b><br>
+                    Kategori: <b>${tempat.kategori}</b><br>
+                    Harga: ${infoHarga}
+                `);
+
+                marker.addTo(markerLayer);
+
+                // Membuat elemen item di daftar sidebar kiri
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'location-item';
+                itemDiv.innerHTML = `
+                    <div class="item-title">${tempat.nama}</div>
+                    <div class="item-meta">
+                        <span>🏷️ ${tempat.kategori}</span>
+                        <span>💰 ${infoHarga}</span>
+                    </div>
+                `;
+
+                // Saat nama di daftar diklik, kamera peta terbang ke titik tersebut & buka popup
+                itemDiv.onclick = () => {
+                    map.flyTo([tempat.latitude, tempat.longitude], 17, {
+                        duration: 1.2
+                    });
+                    marker.openPopup();
+                };
+
+                wadahDaftar.appendChild(itemDiv);
+            });
+
+            // Perbarui teks Penghitung Jumlah Titik
+            const labelKategori = kategoriAktif === 'Semua' ? 'Total Menampilkan' : `Kategori ${kategoriAktif}`;
+            document.getElementById('jumlah-titik').innerText = `${labelKategori}: ${dataTersaring.length} Titik`;
+        }
+
+        // 5. Fungsi klik tombol filter kategori
+        function filterKategori(kategori, elemenTombol) {
+            kategoriAktif = kategori;
+            const semuaTombol = document.querySelectorAll('.btn-filter');
+            semuaTombol.forEach(btn => btn.classList.remove('active'));
+            elemenTombol.classList.add('active');
+
+            perbaruiTampilan();
+        }
+
+        // 6. Menambahkan Kotak Legenda di Pojok Kanan Bawah Peta
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = function () {
+            const div = L.DomUtil.create('div', 'legend');
+            div.innerHTML = `
+                <h4>Legenda Peta</h4>
+                <div class="legend-item"><span class="dot dot-blue"></span> Barbershop</div>
+                <div class="legend-item"><span class="dot dot-green"></span> Pangkas Rambut Asgar</div>
+                <div class="legend-item"><span class="dot dot-red"></span> Salon & Beauty</div>
+            `;
+            return div;
+        };
+        legend.addTo(map);
+
+        // 7. Mengambil data dari API server.js
         fetch('/api/lokasi')
             .then(response => response.json())
             .then(data => {
-                data.forEach(tempat => {
-                    // Memasang marker berdasarkan latitude dan longitude dari database
-                    const marker = L.marker([tempat.latitude, tempat.longitude]).addTo(map);
-                    
-                    // Menambahkan popup informasi saat marker diklik
-                    marker.bindPopup(`
-                        <b>${tempat.nama}</b><br>
-                        Kategori: ${tempat.kategori}<br>
-                        Harga: Rp ${tempat.harga.toLocaleString('id-ID')}
-                    `);
-                });
+                semuaDataLokasi = data;
+                perbaruiTampilan();
             })
-            .catch(error => console.error('Gagal memuat titik lokasi:', error));
+            .catch(error => {
+                console.error('Gagal memuat titik lokasi:', error);
+                document.getElementById('jumlah-titik').innerText = 'Gagal memuat data!';
+            });
     </script>
 </body>
 </html>
