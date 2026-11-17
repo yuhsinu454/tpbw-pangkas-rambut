@@ -26,7 +26,7 @@
             color: #1e293b;
         }
 
-        /* HEADER & TOP NAVIGATION BAR (Gaya Referensi Web GIS Modern) */
+        /* HEADER & TOP NAVIGATION BAR */
         header {
             background-color: #ffffff;
             color: #1e293b;
@@ -136,9 +136,7 @@
             display: flex;
         }
 
-        /* ==========================================
-           HALAMAN 1: PETA & SIDEBAR RINGKAS
-           ========================================== */
+        /* HALAMAN 1: PETA & SIDEBAR RINGKAS */
         .sidebar {
             width: 350px;
             background-color: #ffffff;
@@ -161,7 +159,6 @@
             color: #64748b;
         }
 
-        /* Search Bar Bulat ala Referensi */
         .search-box input {
             width: 100%;
             padding: 9px 14px;
@@ -178,7 +175,6 @@
             box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
         }
 
-        /* Pill Filter Kategori */
         .section-label {
             font-size: 10.5px;
             font-weight: 700;
@@ -215,17 +211,18 @@
             border-color: #0f172a;
         }
         .dot {
-            height: 8px;
-            width: 8px;
+            height: 9px;
+            width: 9px;
             border-radius: 50%;
             display: inline-block;
+            border: 1.5px solid #ffffff;
+            box-shadow: 0 0 2px rgba(0,0,0,0.25);
         }
         .dot-blue { background-color: #2A81CB; }
         .dot-green { background-color: #2AAD27; }
         .dot-red { background-color: #CB2B3E; }
         .dot-violet { background-color: #9C2BCB; }
 
-        /* Filter Dropdowns & Radius */
         .filter-row-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -285,7 +282,7 @@
             cursor: pointer;
         }
 
-        /* Ringkasan Statistik Bawah Sidebar (Persis Gaya Foto ke-2) */
+        /* Ringkasan Statistik Bawah Sidebar */
         .mini-stats-box {
             border-top: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
@@ -435,9 +432,7 @@
             height: 100%;
         }
 
-        /* ==========================================
-           HALAMAN 2: STATISTIK & DASHBOARD PENUH
-           ========================================== */
+        /* HALAMAN 2: STATISTIK & DASHBOARD PENUH */
         .dashboard-page {
             flex: 1;
             padding: 24px 32px;
@@ -581,9 +576,7 @@
             color: #d97706;
         }
 
-        /* ==========================================
-           HALAMAN 3: TABEL DATA LENGKAP
-           ========================================== */
+        /* HALAMAN 3: TABEL DATA LOKASI */
         .table-page {
             flex: 1;
             padding: 24px 32px;
@@ -628,24 +621,112 @@
             font-size: 11px;
             font-weight: 600;
             cursor: pointer;
+            margin-right: 4px;
         }
         .btn-zoom-table:hover {
             background-color: #f59e0b;
         }
 
-        /* Tombol Rute Popup & Legenda */
-        .btn-route {
+        /* Tombol Rute, Street View & Legenda */
+        .popup-btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .btn-route, .btn-streetview {
             display: block;
-            margin-top: 6px;
-            padding: 5px 8px;
-            background-color: #2563eb;
+            padding: 6px 8px;
             color: #ffffff !important;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
             font-size: 11px;
             font-weight: bold;
+            border: none;
+            cursor: pointer;
         }
+        .btn-route { background-color: #2563eb; margin-top: 0; }
+        .btn-route:hover { background-color: #1d4ed8; }
+        .btn-streetview { background-color: #ea580c; }
+        .btn-streetview:hover { background-color: #c2410c; }
+
+        /* Modal Street View 360 */
+        .sv-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            z-index: 5000;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            backdrop-filter: blur(3px);
+        }
+        .sv-modal-overlay.active {
+            display: flex;
+        }
+        .sv-modal-box {
+            background: #ffffff;
+            width: 100%;
+            max-width: 920px;
+            height: 82vh;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .sv-modal-header {
+            padding: 14px 20px;
+            background: #0f172a;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sv-modal-header h3 {
+            font-size: 15px;
+            color: #f59e0b;
+            margin: 0;
+        }
+        .sv-modal-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .btn-sv-ext {
+            background: #334155;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+        .btn-sv-ext:hover { background: #475569; }
+        .btn-sv-close {
+            background: #ef4444;
+            color: #ffffff;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-sv-close:hover { background: #dc2626; }
+        .sv-iframe-container {
+            flex: 1;
+            width: 100%;
+            background: #1e293b;
+        }
+        .sv-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .legend {
             background: white;
             padding: 12px 14px;
@@ -679,7 +760,7 @@
 </head>
 <body>
 
-    <!-- TOP NAVIGATION BAR (Gaya Web GIS Sempadan) -->
+    <!-- TOP NAVIGATION BAR -->
     <header>
         <div class="brand-box">
             <span style="font-size: 20px;">💈</span>
@@ -705,9 +786,7 @@
         </div>
     </header>
 
-    <!-- ==========================================
-         VIEW 1: HALAMAN PETA SPASIAL (UTAMA)
-         ========================================== -->
+    <!-- VIEW 1: HALAMAN PETA SPASIAL -->
     <div class="view-section active" id="view-peta">
         <div class="sidebar">
             <div class="sidebar-title-box">
@@ -715,12 +794,10 @@
                 <p>Sistem Informasi Geografis Kota Bandung</p>
             </div>
 
-            <!-- Kolom Pencarian Bulat -->
             <div class="search-box">
                 <input type="text" id="input-cari" placeholder="🔍 Cari nama barbershop, asgar, salon..." oninput="perbaruiTampilan(false)">
             </div>
 
-            <!-- Filter Kategori (Pill Buttons) -->
             <div>
                 <div class="section-label">Kategori Tempat</div>
                 <div class="pill-group">
@@ -737,7 +814,6 @@
                 </div>
             </div>
 
-            <!-- Filter Budget & Urutan -->
             <div class="filter-row-2">
                 <div class="control-box">
                     <div class="section-label">Filter Budget</div>
@@ -759,7 +835,6 @@
                 </div>
             </div>
 
-            <!-- Filter Radius Jarak & Jam Buka -->
             <div class="radius-control">
                 <div class="radius-top">
                     <span class="section-label" style="margin:0;">Radius dari Posisi Anda</span>
@@ -781,7 +856,6 @@
                 </label>
             </div>
 
-            <!-- RINGKASAN STATISTIK BAWAH SIDEBAR (Persis Gaya Foto ke-2) -->
             <div class="mini-stats-box">
                 <div class="mini-numbers">
                     <div class="mini-num-item">
@@ -825,7 +899,6 @@
                 </div>
             </div>
 
-            <!-- Daftar Lokasi -->
             <div>
                 <div class="section-label">Daftar Lokasi (<span id="jumlah-titik">0</span>)</div>
                 <div class="location-list" id="daftar-lokasi"></div>
@@ -835,9 +908,7 @@
         <div id="map"></div>
     </div>
 
-    <!-- ==========================================
-         VIEW 2: HALAMAN STATISTIK & DASHBOARD PENUH
-         ========================================== -->
+    <!-- VIEW 2: HALAMAN STATISTIK & DASHBOARD PENUH -->
     <div class="view-section" id="view-statistik">
         <div class="dashboard-page">
             <div class="dash-header">
@@ -850,7 +921,6 @@
                 </button>
             </div>
 
-            <!-- KPI Cards Besar -->
             <div class="kpi-row">
                 <div class="kpi-card primary">
                     <div class="kpi-title">Total Lokasi Tampil</div>
@@ -879,7 +949,6 @@
                 </div>
             </div>
 
-            <!-- Grafik Chart.js Berukuran Besar -->
             <div class="charts-row">
                 <div class="chart-card">
                     <h3>Proporsi Kategori Tempat Cukur</h3>
@@ -897,7 +966,6 @@
                 </div>
             </div>
 
-            <!-- Top 5 Termurah & Terdekat -->
             <div class="toplist-row">
                 <div class="toplist-card">
                     <h3>🔥 Top 5 Rekomendasi Termurah</h3>
@@ -911,9 +979,7 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         VIEW 3: HALAMAN TABEL DATA LOKASI
-         ========================================== -->
+    <!-- VIEW 3: HALAMAN TABEL DATA LOKASI -->
     <div class="view-section" id="view-tabel">
         <div class="table-page">
             <div class="table-card">
@@ -938,6 +1004,22 @@
                     </thead>
                     <tbody id="tabel-body"></tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL INTERAKTIF STREET VIEW 360 -->
+    <div class="sv-modal-overlay" id="sv-modal" onclick="if(event.target === this) tutupStreetView()">
+        <div class="sv-modal-box">
+            <div class="sv-modal-header">
+                <h3 id="sv-judul">🚶‍♂️ Street View Lokasi</h3>
+                <div class="sv-modal-actions">
+                    <a id="sv-link-luar" href="#" target="_blank" class="btn-sv-ext">↗️ Buka di Tab Baru</a>
+                    <button class="btn-sv-close" onclick="tutupStreetView()">✖ Tutup</button>
+                </div>
+            </div>
+            <div class="sv-iframe-container">
+                <iframe id="sv-iframe" src="" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </div>
@@ -1050,29 +1132,22 @@
         }
         inisialisasiChart();
 
-        // 4. Custom Color Icon & Pin Posisi Pengguna
-        function buatIconWarna(warna) {
-            return new L.Icon({
-                iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${warna}.png`,
-                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
-            });
-        }
-
-        const iconBarbershop = buatIconWarna('blue');
-        const iconAsgar = buatIconWarna('green');
-        const iconSalon = buatIconWarna('red');
-        const iconUser = buatIconWarna('violet');
-
-        function pilihIconKategori(kategori) {
+        // 4. Warna Titik Bulat (Circle Marker) & Pin Posisi Pengguna
+        function pilihWarnaKategori(kategori) {
             const kat = kategori.trim().toLowerCase();
-            if (kat === 'asgar') return iconAsgar;
-            if (kat === 'salon') return iconSalon;
-            return iconBarbershop;
+            if (kat === 'asgar') return '#2AAD27'; // Hijau Asgar
+            if (kat === 'salon') return '#CB2B3E'; // Merah Salon
+            return '#2A81CB'; // Biru Barbershop
         }
+
+        const iconUser = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
 
         let posisiUser = { lat: -6.914744, lng: 107.609810 };
         let lingkaranRadius = null;
@@ -1142,7 +1217,7 @@
         let semuaDataLokasi = [];
         let kategoriAktif = 'Semua';
 
-        // 6. Fungsi Filter Cepat & Reset
+        // 6. Fungsi Filter Cepat, Reset & Street View 360
         function sinkronkanPillKategori(kategori) {
             const pills = document.querySelectorAll('.pill-btn');
             pills.forEach(btn => {
@@ -1186,6 +1261,21 @@
             }, 200);
         }
 
+        function bukaStreetView(nama, lat, lng) {
+            document.getElementById('sv-judul').innerText = `🚶‍♂️ Street View 360°: ${nama}`;
+            const embedUrl = `https://maps.google.com/maps?q=${lat},${lng}&layer=c&cbll=${lat},${lng}&cbp=11,0,0,0,0&output=svembed`;
+            const extUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}`;
+            
+            document.getElementById('sv-iframe').src = embedUrl;
+            document.getElementById('sv-link-luar').href = extUrl;
+            document.getElementById('sv-modal').classList.add('active');
+        }
+
+        function tutupStreetView() {
+            document.getElementById('sv-modal').classList.remove('active');
+            document.getElementById('sv-iframe').src = '';
+        }
+
         // 7. Update Statistik Sidebar, Halaman Dashboard, dan Tabel
         function perbaruiDashboardStatistik(dataAktif, dataSemuaJarak) {
             let total = dataAktif.length;
@@ -1206,7 +1296,6 @@
                 else hargaPremium++;
             });
 
-            // A. Update Mini Stats di Sidebar Peta (Gaya Foto ke-2)
             document.getElementById('mini-total').innerText = total;
             document.getElementById('mini-barber').innerText = countBarber;
             document.getElementById('mini-asgar').innerText = countAsgar;
@@ -1222,7 +1311,6 @@
             document.getElementById('bar-lainnya').style.width = `${(hargaBelumAda / pembagi) * 100}%`;
             document.getElementById('count-lainnya').innerText = hargaBelumAda;
 
-            // B. Update Halaman Statistik & Dashboard Penuh
             document.getElementById('stat-total').innerText = total;
             document.getElementById('stat-barber').innerText = countBarber;
             document.getElementById('stat-asgar').innerText = countAsgar;
@@ -1280,7 +1368,7 @@
             });
         }
 
-        // 8. Fungsi Utama Render Peta, Sidebar, dan Tabel
+        // 8. Fungsi Utama Render Titik Bulat (CircleMarker), Sidebar, dan Tabel
         function perbaruiTampilan(fokusKeRadius = false) {
             markerLayer.clearLayers();
             const wadahDaftar = document.getElementById('daftar-lokasi');
@@ -1365,22 +1453,39 @@
                 const infoHarga = tempat.harga > 0 ? `Rp ${tempat.harga.toLocaleString('id-ID')}` : 'Belum ada info';
                 const status = cekStatusBuka(tempat.jam_operasional);
                 const teksJarak = tempat.jarakMeter < 1000 ? `${Math.round(tempat.jarakMeter)} m` : `${(tempat.jarakMeter / 1000).toFixed(2)} km`;
+                const warnaTitik = pilihWarnaKategori(tempat.kategori);
+                const namaAman = tempat.nama.replace(/'/g, "\\'");
 
-                const marker = L.marker([tempat.latitude, tempat.longitude], {
-                    icon: pilihIconKategori(tempat.kategori)
+                const marker = L.circleMarker([tempat.latitude, tempat.longitude], {
+                    radius: 7,
+                    fillColor: warnaTitik,
+                    color: '#ffffff',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.9
+                });
+
+                marker.on('mouseover', function () {
+                    this.setStyle({ radius: 10, weight: 3 });
+                });
+                marker.on('mouseout', function () {
+                    this.setStyle({ radius: 7, weight: 2 });
                 });
 
                 const urlRute = `https://www.google.com/maps/dir/?api=1&origin=${posisiUser.lat},${posisiUser.lng}&destination=${tempat.latitude},${tempat.longitude}&travelmode=two_wheeler`;
 
                 marker.bindPopup(`
-                    <div style="min-width: 190px; line-height: 1.5;">
+                    <div style="min-width: 220px; line-height: 1.5;">
                         <b>${tempat.nama}</b><br>
                         Kategori: <b>${tempat.kategori}</b><br>
                         📏 Jarak: <b>${teksJarak} dari Anda</b><br>
                         💰 Harga: <b>${infoHarga}</b><br>
                         🕒 Jam: ${status.jamTeks}<br>
                         Status: <span class="status-badge ${status.kelas}">${status.label}</span>
-                        <a href="${urlRute}" target="_blank" class="btn-route">🗺️ Rute Google Maps</a>
+                        <div class="popup-btn-group">
+                            <button onclick="bukaStreetView('${namaAman}', ${tempat.latitude}, ${tempat.longitude})" class="btn-streetview">🚶‍♂️ Street View</button>
+                            <a href="${urlRute}" target="_blank" class="btn-route">🗺️ Rute Maps</a>
+                        </div>
                     </div>
                 `);
 
@@ -1419,7 +1524,10 @@
                     <td>${status.jamTeks}</td>
                     <td><span class="status-badge ${status.kelas}">${status.label}</span></td>
                     <td>${teksJarak}</td>
-                    <td><button class="btn-zoom-table" onclick="fokusKeTitikPeta(${tempat.latitude}, ${tempat.longitude})">Lihat di Peta</button></td>
+                    <td>
+                        <button class="btn-zoom-table" onclick="fokusKeTitikPeta(${tempat.latitude}, ${tempat.longitude})">🗺️ Peta</button>
+                        <button class="btn-zoom-table" style="background:#ea580c;" onclick="bukaStreetView('${namaAman}', ${tempat.latitude}, ${tempat.longitude})">🚶‍♂️ Street View</button>
+                    </td>
                 `;
                 tabelBody.appendChild(tr);
             });
@@ -1431,10 +1539,10 @@
             const div = L.DomUtil.create('div', 'legend');
             div.innerHTML = `
                 <h4>Legenda Peta</h4>
-                <div class="legend-item"><span class="dot dot-violet"></span> Posisi Anda (Bisa Digeser)</div>
-                <div class="legend-item"><span class="dot dot-blue"></span> Barbershop</div>
-                <div class="legend-item"><span class="dot dot-green"></span> Pangkas Rambut Asgar</div>
-                <div class="legend-item"><span class="dot dot-red"></span> Salon & Beauty</div>
+                <div class="legend-item"><span class="dot dot-violet"></span> Pin Posisi Anda (Bisa Digeser)</div>
+                <div class="legend-item"><span class="dot dot-blue"></span> Titik Barbershop</div>
+                <div class="legend-item"><span class="dot dot-green"></span> Titik Pangkas Asgar</div>
+                <div class="legend-item"><span class="dot dot-red"></span> Titik Salon & Beauty</div>
             `;
             return div;
         };
