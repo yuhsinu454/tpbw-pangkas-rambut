@@ -41,7 +41,6 @@ VALUES
 ('BROCUT BARBERHOUSE', 'Barbershop', 0, -6.926342339345074, 107.61658988779158),
 ('CUKUR HADE BARBERSHOP - LENGKONG KECIL', 'Barbershop', 50000, -6.920804027653601, 107.60710559793081),
 ('Captain Barbershop Sunda Bandung', 'Barbershop', 70000, -6.917736627075547, 107.62564502564885),
-('Venus Barbershop', 'Barbershop', 0, -6.938441193941059, 107.67130695015337),
 ('CUKUR HADE BARBERSHOP - CIKUTRA', 'Barbershop', 50000, -6.890231006575481, 107.63867247042381),
 ('Golden Barbershop Dipatiukur', 'Barbershop', 85000, -6.888015520564583, 107.62305128595767),
 ('Golden Barbershop Cihampelas', 'Barbershop', 85000, -6.887065863915724, 107.59854829108552),
@@ -270,7 +269,26 @@ VALUES
 ('Pangkas Rambut Asgar', 'Asgar', 15000, -6.876562504582747, 107.57929175871045),
 ('Pangkas Rambut Asgar Abah Agus', 'Asgar', 15000, -6.892446522229834, 107.59450256521926),
 ('Kang yog cukur asgar', 'Asgar', 20000, -6.901369565163725, 107.59560495325206),
-('Pangkas rambut PUTRA ASGAR', 'Asgar', 15000, -6.910584008137356, 107.58283629762853);
+('Pangkas rambut PUTRA ASGAR', 'Asgar', 15000, -6.910584008137356, 107.58283629762853),
+('Barbershop R.Babon (cabang Adina antapani)', 'Barbershop', 0, -6.89244545795152, 107.6624479123845),
+('Hexa Barbershop', 'Barbershop', 0, -6.892906004778586, 107.66190202416797),
+('Venus Barbershop', 'Barbershop', 60000, -6.894877286720797, 107.65966188023785),
+('Venus Barbershop', 'Barbershop', 60000, -6.939996619946006, 107.66639020346217),
+('Venus Barbershop', 'Barbershop', 60000, -6.907499597329376, 107.58200062270612),
+('Asal Cukur Barbershop', 'Barbershop', 0, -6.8971150115427, 107.65795045147992),
+('Dewa Ganteng Barber Shop', 'Barbershop', 0, -6.89846890709622, 107.65749280147257),
+('Gmax Barbershop', 'Barbershop', 40000, -6.897241631835835, 107.6546974499195),
+('Aux Barbershop', 'Barbershop', 20000, -6.896363898551161, 107.65494457604973),
+('MAS.ZM Barbershop', 'Barbershop', 20000, -6.8941275181815405, 107.65261433555298),
+('Cep Anwar Barbershop', 'Barbershop', 0, -6.889861707897329, 107.6512275041465),
+('Barbershop Eternal One Cikutra', 'Barbershop', 0, -6.893714543587552, 107.63821254772638),
+('PANGKASEPNA HAIRCUT STUDIO', 'Barbershop', 50000, -6.89800497611279, 107.63479512363436),
+('Hairsky Barbershop', 'Barbershop', 60000, -6.898356655272751, 107.63636406178513),
+('Rockyman Barbershop', 'Barbershop', 50000, -6.8985999607309525, 107.64339199443421),
+('Sensen Barbershop', 'Barbershop', 50000, -6.899310757850264, 107.64353070610989),
+('Moxie Hair Studio 202 (Barbershop)', 'Barbershop', 60000, -6.897907590454554, 107.64371688796285),
+('Barbershop Barberluis', 'Barbershop', 20000, -6.900919247974196, 107.64404282222922),
+('King Haircut barbershop', 'Barbershop', 40000, -6.921951878146829, 107.64705365351128);
 
 
 -- 4. Tampilkan hasilnya
@@ -287,6 +305,22 @@ UPDATE lokasi_cukur SET jam_operasional = '09.00 - 20.00 WIB' WHERE kategori = '
 
 -- (Opsional) Kalau mau mengubah jam buka tempat tertentu saja secara spesifik:
 UPDATE lokasi_cukur SET jam_operasional = '09.00 - 23.00 WIB' WHERE nama = 'GoodFellas Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 21.00 WIB' WHERE nama = 'Barbershop R.Babon (cabang Adina antapani)';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 21.00 WIB' WHERE nama = 'Hexa Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '08.00 - 20.00 WIB' WHERE nama = 'Venus Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 21.00 WIB' WHERE nama = 'Asal Cukur Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 21.00 WIB' WHERE nama = 'Gmax Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 22.00 WIB' WHERE nama = 'Aux Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '11.00 - 21.00 WIB' WHERE nama = 'MAS.ZM Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '08.00 - 21.00 WIB' WHERE nama = 'Cep Anwar Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 21.00 WIB' WHERE nama = 'Barbershop Eternal One Cikutra';
+UPDATE lokasi_cukur SET jam_operasional = '10.00 - 21.00 WIB' WHERE nama = 'PANGKASEPNA HAIRCUT STUDIO';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 22.00 WIB' WHERE nama = 'Hairsky Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '10.30 - 22.30 WIB' WHERE nama = 'Rockyman Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '10.00 - 21.00 WIB' WHERE nama = 'Sensen Barbershop';
+UPDATE lokasi_cukur SET jam_operasional = '09.00 - 23.00 WIB' WHERE nama = 'Moxie Hair Studio 202 (Barbershop)';
+UPDATE lokasi_cukur SET jam_operasional = '08.00 - 21.00 WIB' WHERE nama = 'Barbershop Barberluis';
+UPDATE lokasi_cukur SET jam_operasional = '09.30 - 22.00 WIB' WHERE nama = 'King Haircut barbershop';
 
 -- 7. Cek hasil tabel yang sudah ada jam operasionalnya
 SELECT * FROM lokasi_cukur;
